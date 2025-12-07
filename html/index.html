@@ -4,19 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CalculadoraIMC</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- link fonte -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Calculadora - IMC</h1>
-    <hr>
-    <h2>Nome</h2>
-    <input type="text" name="Nome" id="Nome">
-    <h2>Altura</h2>
-    <input type="text" name="Altura" id="Altura">
-    <h2>Peso</h2>
-    <input type="text" name="Peso" id="Peso">
-    <button>Calcular</button>
-    <div id="caixaDeTexto">
-        <p>Teste com texto</p>
+<div class="container">
+    <div id="calc-container">
+    <h2>Calculadora de IMC</h2>
+    <form id="imc-form">
+        <div class="form-inputs">
+            <div class="form-control">
+                <label for="height">Altura:</label>
+                <input type="text" name="height" id="height" placeholder="Exemplo 1,68">
+            </div>
+            <div class="form-control">
+                <label for="weight">Peso:</label>
+                <input type="text" name="weight" id="weight" placeholder="Exemplo 51,2">
+            </div>
+        </div>
+        <div class="action-control">
+            <button id="calc-btn">Calcular</button>
+            <button id="clear-btn">Limpar</button>
+        </div>
+        </form>
     </div>
+    <div id="result">
+        <p id="imc-number">Seu IMC:<span></span></p>
+        <p id="imc-info">Situação atual: <span></span></p>
+        <h3>Confira as classificações:</h3>
+        <div id="imc-table">
+            <div class="table-header">
+                <h4>IMC</h4>
+                <h4>Classificação</h4>
+                <h4>Obsedidade</h4>
+            </div>
+        </div>
+        <button id="back-btn">Voltar</button>
+    </div>
+</div>
+<script src="../js/script.js"></script>
 </body>
 </html>
