@@ -62,7 +62,7 @@ function createTable(date){
       div.appendChild(info)
       div.appendChild(obesity)
 
-      imcTable.appendChild(div);//verificar
+      imcTable.appendChild(div);
    });
 }
 function cleanInputs(){
@@ -74,18 +74,34 @@ function validDigits(text){
    return text.replace(/[^0-9,]/g,"")
 }
 
+function calcImc(weight, height){
+  const imc = (weight / (height * height)).toFixed(1);
+  return imc;
+}
+
 //Inicializações
 createTable(date);
 
 //Eventos 
 
 [heightInput, weightInput].forEach((el) => {
-   el.addEventListener("input", (e) =>{
+   el.addEventListener("input", (e) => {
    const updatedValue = validDigits(e.target.value);
    e.target.value = updatedValue;
    });
 });
+//Calcular 
+calcBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const weight = +weightInput.value.replace(",", ".");
+  const height = +heightInput.value.replace(",", ".");
+  // validation
+  if (!weight || !height) return;
+  const imc = calcImc(weight, height);
+  console.log(imc);
+});
 
+//Limpar campos
 clearBtn.addEventListener("click", (e) =>{
     e.preventDefault();
     cleanInputs();
