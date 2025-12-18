@@ -65,7 +65,28 @@ function createTable(date){
       imcTable.appendChild(div);//verificar
    });
 }
+function cleanInputs(){
+    heightInput.value = ""
+    weightInput.value = ""
+}
+
+function validDigits(text){
+   return text.replace(/[^0-9,]/g,"")
+}
+
 //Inicializações
 createTable(date);
 
 //Eventos 
+
+[heightInput, weightInput].forEach((el) => {
+   el.addEventListener("input", (e) =>{
+   const updatedValue = validDigits(e.target.value);
+   e.target.value = updatedValue;
+   });
+});
+
+clearBtn.addEventListener("click", (e) =>{
+    e.preventDefault();
+    cleanInputs();
+});
