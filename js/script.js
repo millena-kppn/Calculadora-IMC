@@ -98,7 +98,16 @@ calcBtn.addEventListener("click", (e) => {
   // validation
   if (!weight || !height) return;
   const imc = calcImc(weight, height);
-  console.log(imc);
+  
+  let info
+  date.forEach((item) => {
+  if (imc >= item.min && imc <= item.max) {
+    info = item.info;
+  }
+  });
+  console.log(info);
+  if (!info) return;
+
 });
 
 //Limpar campos
