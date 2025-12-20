@@ -51,7 +51,6 @@ const imcNumber = document.querySelector("#imc-number span");
 const imcInfo = document.querySelector("#imc-info span");
 
 const backBtn = document.querySelector("#back-btn");
-
 //Funções 
 function createTable(date){
    date.forEach(item => {    
@@ -75,8 +74,10 @@ function createTable(date){
    });
 }
 function cleanInputs(){
-    heightInput.value = ""
-    weightInput.value = ""
+    heightInput.value = "";
+    weightInput.value = "";
+    imcNumber.classList = "";
+    imcInfo.classList = "";
 }
 
 function validDigits(text){
@@ -92,7 +93,6 @@ function showOrHideResults(){
   calcCaontainer.classList.toggle("hide");
   resultCaontainer.classList.toggle("hide");
 }
-
 //Inicializações
 createTable(date);
 //Eventos 
@@ -121,12 +121,39 @@ calcBtn.addEventListener("click", (e) => {
 
   imcNumber.innerText = imc
   imcInfo.innerText = info
-
-  showOrHideResults();
+   
+  switch(info){
+    case "Magreza":
+    imcNumber.classList.add("low");
+    imcInfo.classList.add("low");
+    break;
+    case "Normal":
+    imcNumber.classList.add("good");
+    imcInfo.classList.add("good");
+    break;
+    case "Sobrepeso":
+    imcNumber.classList.add("low");
+    imcInfo.classList.add("low");
+    break;
+    case "Obesidade":
+    imcNumber.classList.add("medium");
+    imcInfo.classList.add("medium");
+    break;
+    case "Obesidade grave":
+    imcNumber.classList.add("high");
+    imcInfo.classList.add("high");
+    break;
+  }
   // Exibir a tela do imc
+  showOrHideResults();
 });
 //Limpar campos
 clearBtn.addEventListener("click", (e) =>{
     e.preventDefault();
     cleanInputs();
+});
+//Btn voltar 
+backBtn.addEventListener("click", () =>{
+  cleanInputs();
+  showOrHideResults();
 });

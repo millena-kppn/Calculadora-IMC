@@ -112,7 +112,7 @@ button:hover{
 #back-btn{
    align-self: center;
 }
-/* clss de auxilio */
+/* devinindo cores para uasr no switch de info */
 .good{
    color: #12db34;
 }
@@ -120,8 +120,8 @@ button:hover{
    color: #dbce12;
 }
 .medium{
-   color: #db6212;
+   color: #f38926;
 }
 .high{
-   color: #db1912;
+   color: #e00800;
 }
